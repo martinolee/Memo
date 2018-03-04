@@ -33,10 +33,50 @@ class DetailViewController: UIViewController {
         
         dateLabel.text = df.string(for: memo?.insertDate)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    @IBAction func confirmDelete(_ sender: Any) {
+        let alert = UIAlertController(title: "삭제", message: "삭제 하시겠습니까?", preferredStyle: .alert)
+        
+        let ok = UIAlertAction(title: "삭제", style: .destructive) { (action) in
+            self.deleteMemo()
+        }
+        alert.addAction(ok)
+        
+        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        alert.addAction(cancel)
+        
+        present(alert, animated: true, completion: nil)
     }
-
+    
+    func deleteMemo() {
+        if let target = memo {
+            context.delete(target)
+        }
+        
+        do {
+            try context.save()
+            navigationController?.popViewController(animated: true)
+        } catch {
+            show(message: error.localizedDescription)
+        }
+    }
+    
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
