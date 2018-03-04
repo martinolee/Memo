@@ -133,7 +133,11 @@
                                         </connections>
                                     </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="8b5-Pa-4ZU"/>
-                                    <barButtonItem title="편집하기" id="j6S-4F-fzy"/>
+                                    <barButtonItem title="편집하기" id="j6S-4F-fzy">
+                                        <connections>
+                                            <segue destination="Jxq-my-eKp" kind="presentation" identifier="editSegue" id="cok-od-ggB"/>
+                                        </connections>
+                                    </barButtonItem>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="oMh-gS-XxY"/>
                                     <barButtonItem systemItem="action" id="300-Fo-Iy1">
                                         <connections>
@@ -165,7 +169,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="s7a-6X-ohV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1253.5999999999999" y="132.68365817091455"/>
+            <point key="canvasLocation" x="1254" y="133"/>
         </scene>
         <!--새 메모-->
         <scene sceneID="LCd-iR-oVP">
@@ -220,7 +224,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ADq-dV-dyo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1948" y="-537"/>
+            <point key="canvasLocation" x="1954" y="-555"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="AP5-8V-9tM">
@@ -256,7 +260,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rnh-1a-2RY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1255" y="-537"/>
+            <point key="canvasLocation" x="1254" y="-555"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="cok-od-ggB"/>
+    </inferredMetricsTieBreakers>
 </document>

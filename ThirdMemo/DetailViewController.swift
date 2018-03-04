@@ -79,6 +79,16 @@ class DetailViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        switch segue.identifier {
+        case .some("editSegue"):
+            if let nav = segue.destination as? UINavigationController, let vc = nav.topViewController as? ComposeViewController {
+                vc.memo = memo
+            }
+        default:
+            super.prepare(for: segue, sender: sender)
+        }
+    }
     
 }
 

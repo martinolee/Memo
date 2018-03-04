@@ -28,6 +28,8 @@ extension UIViewController {
 }
 
 class ComposeViewController: UIViewController {
+    var memo: MemoEntity?
+    
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var contentField: UITextView!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
@@ -47,10 +49,15 @@ class ComposeViewController: UIViewController {
             return
         }
         
-        if let newMemo = NSEntityDescription.insertNewObject(forEntityName: "Memo", into: context) as? MemoEntity {
-            newMemo.title = title
-            newMemo.content = content
-            newMemo.insertDate = Date()
+        if let editMemo = memo {
+            editMemo.title = title
+            editMemo.content = content
+        } else {
+            if let newMemo = NSEntityDescription.insertNewObject(forEntityName: "Memo", into: context) as? MemoEntity {
+                newMemo.title = title
+                newMemo.content = content
+                newMemo.insertDate = Date()
+            }
         }
         
         do {
@@ -82,6 +89,15 @@ class ComposeViewController: UIViewController {
             UIView.animate(withDuration: 0.3, animations: {
                 self?.view.layoutIfNeeded()
             })
+        }
+        
+        if let editMemo = memo {
+            titleField.text = editMemo.title
+            contentField.text = editMemo.content
+            
+            title = "편집하기"
+        } else {
+            title = "새 메모"
         }
     }
     
