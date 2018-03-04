@@ -36,9 +36,9 @@ class DetailViewController: UIViewController {
     }
     
     @IBAction func confirmDelete(_ sender: Any) {
-        let alert = UIAlertController(title: "삭제", message: "삭제 하시겠습니까?", preferredStyle: .alert)
+        let alert = UIAlertController(title: "지우기", message: "지우시겠습니까?", preferredStyle: .alert)
         
-        let ok = UIAlertAction(title: "삭제", style: .destructive) { (action) in
+        let ok = UIAlertAction(title: "지우기", style: .destructive) { (action) in
             self.deleteMemo()
         }
         alert.addAction(ok)
