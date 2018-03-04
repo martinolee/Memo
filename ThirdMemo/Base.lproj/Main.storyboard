@@ -135,7 +135,11 @@
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="8b5-Pa-4ZU"/>
                                     <barButtonItem title="편집하기" id="j6S-4F-fzy"/>
                                     <barButtonItem style="plain" systemItem="flexibleSpace" id="oMh-gS-XxY"/>
-                                    <barButtonItem systemItem="action" id="300-Fo-Iy1"/>
+                                    <barButtonItem systemItem="action" id="300-Fo-Iy1">
+                                        <connections>
+                                            <action selector="sendEmail:" destination="fUp-TQ-afw" id="EAD-Rn-bca"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>

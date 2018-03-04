@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import MessageUI
 
 class DetailViewController: UIViewController {
     
@@ -61,10 +62,37 @@ class DetailViewController: UIViewController {
         }
     }
     
+    @IBAction func sendEmail(_ sender: Any) {
+        if MFMailComposeViewController.canSendMail() {
+            let composer = MFMailComposeViewController()
+            composer.mailComposeDelegate = self
+            
+            if let subject = memo?.title {
+                composer.setSubject(subject)
+            }
+            
+            if let body = memo?.content {
+                composer.setMessageBody(body, isHTML: false)
+            }
+        } else {
+            show(message: "메일을 전송할 수 없습니다.")
+        }
+    }
+    
+    
 }
 
-
-
+extension DetailViewController: MFMailComposeViewControllerDelegate {
+    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
+        switch result {
+        case .sent:
+            show(message: "전송되었습니다.")
+        default:
+            break
+        }
+        controller.dismiss(animated: true, completion: nil)
+    }
+}
 
 
 
